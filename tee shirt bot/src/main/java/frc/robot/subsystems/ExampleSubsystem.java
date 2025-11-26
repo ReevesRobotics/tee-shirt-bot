@@ -6,17 +6,29 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
-  public TalonSRX talon0;
-  public TalonSRX talon1;
+  public TalonSRX m_FrontRight;
+  public TalonSRX m_BackRight;
+  public TalonSRX m_FrontLeft;
+  public TalonSRX m_BackLeft;
+
+  private DifferentialDrive m_robotDrive;
+
+
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
-    talon0 = new TalonSRX(1);
-    talon1 = new TalonSRX(2);
+    m_FrontRight = new WPI_TalonSRX(1);
+    m_BackRight = new WPI_TalonSRX(2);
+    m_FrontLeft = new WPI_TalonSRX(3);
+    m_BackLeft = new WPI_TalonSRX(4);
+
+    m_robotDrive = new DifferentialDrive(m_FrontLeft::set, m_FrontRight::set);
   }
 
   /**

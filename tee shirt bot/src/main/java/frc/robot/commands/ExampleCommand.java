@@ -32,6 +32,8 @@ public class ExampleCommand extends Command {
   public void initialize() {
     m_subsystem.talon0.set(ControlMode.PercentOutput, 1);
     m_subsystem.talon1.set(ControlMode.PercentOutput, 1);
+    m_subsystem.talon2.set(ControlMode.PercentOutput, -1);
+    m_subsystem.talon3.set(ControlMode.PercentOutput, -1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -43,6 +45,8 @@ public class ExampleCommand extends Command {
   public void end(boolean interrupted) {
     m_subsystem.talon0.set(ControlMode.PercentOutput, 0);
     m_subsystem.talon1.set(ControlMode.PercentOutput, 0);
+    m_subsystem.talon2.set(ControlMode.PercentOutput, 0);
+    m_subsystem.talon3.set(ControlMode.PercentOutput, 0);
   }
 
   // Returns true when the command should end.
